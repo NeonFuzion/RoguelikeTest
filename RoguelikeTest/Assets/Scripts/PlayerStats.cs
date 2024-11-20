@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
+    //script references to set stats
     [SerializeField] Movement moveScript;
     [SerializeField] Player playerScript;
     [SerializeField] Health healthScript;
@@ -14,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //setting initial stats
         stats = new Dictionary<PlayerStat, float>()
         {
             { PlayerStat.MovementSpeed, 300 },
@@ -30,9 +32,16 @@ public class PlayerStats : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Increments the provided player stat by the provided amount.
+    /// </summary>
+    /// <param name="stat"></param>
+    /// <param name="amount"></param>
     public void SetStat(PlayerStat stat, float amount)
     {
         stats[stat] += amount;
+
+        //checks which stat is being incremented and processes accordingly
         switch ((int)stat)
         {
             case 0: playerScript.Attack = stats[stat]; break;

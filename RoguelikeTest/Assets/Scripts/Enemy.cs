@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour
         col.gameObject.GetComponent<Health>().TakeDamage(damage);
     }
 
+    /// <summary>
+    /// Sets up stats for the enemy on its creation.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="damage"></param>
     public void Instantiate(Transform target, int damage)
     {
         this.target = target;

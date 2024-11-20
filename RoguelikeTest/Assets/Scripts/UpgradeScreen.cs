@@ -22,6 +22,10 @@ public class UpgradeScreen : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Shuffles array of Upgrades.
+    /// </summary>
+    /// <param name="array"></param>
     void Shuffle(Upgrade[] array)
     {
         for (int t = 0; t < array.Length; t++)
@@ -33,12 +37,18 @@ public class UpgradeScreen : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates cards in UI when player gains enough experience to level up.
+    /// </summary>
     public void CreateUpgradeCards()
     {
+        //create screen that displays upgrades
         GameObject upgradeScreen = Instantiate(prefabUpgradeScreen);
         upgradeScreen.transform.SetParent(transform, false);
         Time.timeScale = 0;
         Shuffle(upgrades);
+
+        //creates each individual upgrade card
         for (int i = 0; i < upgradeCount; i++)
         {
             GameObject upgrade = Instantiate(prefabUpgrade, transform.position, Quaternion.identity);

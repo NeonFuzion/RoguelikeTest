@@ -27,6 +27,10 @@ public class Experience : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Adds experience and increments level if necessary.
+    /// </summary>
+    /// <param name="exp"></param>
     public void AddExperience(int exp)
     {
         value += exp;

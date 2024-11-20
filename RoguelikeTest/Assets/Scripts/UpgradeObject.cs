@@ -25,6 +25,11 @@ public class UpgradeObject : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Sets up the upgrade object (card) to apply upgrade when selected
+    /// </summary>
+    /// <param name="upgrade"></param>
+    /// <param name="player"></param>
     public void Initialize(Upgrade upgrade, GameObject player)
     {
         this.upgrade = upgrade;
@@ -34,6 +39,9 @@ public class UpgradeObject : MonoBehaviour
         button.onClick.AddListener(ApplyUpgrade);
     }
 
+    /// <summary>
+    /// Unpauses gameplay and triggers the selected upgrade's setup.
+    /// </summary>
     public void ApplyUpgrade()
     {
         Time.timeScale = 1;
