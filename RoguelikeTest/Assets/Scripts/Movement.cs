@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //sets speed based on input direction and speed
         rb.linearVelocity = direction * Time.deltaTime * speed;
     }
 }

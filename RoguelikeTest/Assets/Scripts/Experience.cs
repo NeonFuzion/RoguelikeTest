@@ -36,6 +36,7 @@ public class Experience : MonoBehaviour
         value += exp;
         if (value >= maxValue)
         {
+            //increasing level is current experience is high enough
             int excess = value - maxValue;
             levelText.text = int.Parse(levelText.text) + 1 + "";
             maxValue = (int)(maxValue * 1.1f);

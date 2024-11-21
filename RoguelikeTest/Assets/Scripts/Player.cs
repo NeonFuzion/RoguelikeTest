@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //taking movement input
         Vector2 direction = Vector2.zero;
         if (Input.GetKey(KeyCode.W)) direction += Vector2.up;
         if (Input.GetKey(KeyCode.S)) direction += Vector2.down;
@@ -36,11 +37,14 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) direction += Vector2.left;
         onDirectionInput.Invoke(direction);
 
+        //setting rotation
         transform.up = -(Vector2)(transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+        //clamping player to bounds
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -border, border),
             Mathf.Clamp(transform.position.y, -border, border));
 
+        //attacking after attack cooldown ends
         curAtkCD += Time.deltaTime;
         if (curAtkCD < atkCD) return;
         curAtkCD = 0;
@@ -53,6 +57,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows attack range sprite.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShowDamagePoint()
     {
         damagePoint.gameObject.SetActive(true);
